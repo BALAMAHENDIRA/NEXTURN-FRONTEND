@@ -1,20 +1,27 @@
+
+import { Screen3Component } from './tscreen/screen3/screen3.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+ 
+
+ 
+ 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    
+     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     
+    
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [Screen3Component]
 })
 export class AppModule { }
