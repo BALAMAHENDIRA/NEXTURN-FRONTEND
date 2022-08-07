@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
  
-
+import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
  
 
 
@@ -11,15 +11,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-
+  model: NgbDateStruct;
   constructor() { }
 
   ngOnInit(): void {
   }
-  
+ 
+
+
  
  
-  
+
 }
  
 

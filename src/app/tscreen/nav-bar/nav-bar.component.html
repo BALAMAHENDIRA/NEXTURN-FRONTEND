@@ -1,6 +1,54 @@
-<nav class="navbar navbar-dark bg-dark">
-    <div class="container-fluid">
-      <form class="d-flex input-group w-auto">
-      </form>
+ 
+ 
+ <!-- NAVIGATION BAR -->
+ <div class="topnav">
+   <!--  <a href="#news">DATE</a> -->
+   <form class="row row-cols-sm-auto">
+    <div class="col-12">
+      <div class="input-group">
+        <input class="form-control" placeholder="yyyy-mm-dd"
+               name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+        <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+      </div>
     </div>
-  </nav>
+  </form>
+  
+  <hr/>
+  <pre>Model: {{ model | json }}</pre>
+  
+  <ngb-alert class="mt-3 mb-0" type="info" [dismissible]="false">
+    You must provide the icon for the button. This allows you
+    to choose an icon that matches your application's style.
+    In this example, the icon is set via a CSS class.
+  </ngb-alert>
+  
+     
+    <div class="topnav-right">
+      <a href="#SORT">SORT BY PRICE</a>
+      <a href="#SORT">FILTER BY SHOW TIMINGS</a>
+    </div>
+  </div> 
+
+<!--   <nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Navbar w/ text</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        Navbar text with an inline element
+      </span>
+    
+    </div>
+  </nav> -->
