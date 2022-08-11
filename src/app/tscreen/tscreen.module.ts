@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { NgModule , CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -18,7 +19,8 @@ import { MovieNameComponent } from './movie-name/movie-name.component';
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     CommonModule,
-    TScreenRoutingModule
+    TScreenRoutingModule,
+    FormsModule
   ]
 })
 export class TScreenModule { }

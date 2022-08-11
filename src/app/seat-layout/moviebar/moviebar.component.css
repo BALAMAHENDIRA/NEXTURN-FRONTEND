@@ -1,0 +1,14 @@
+.affix {
+    top: 0;
+    width: 100%;
+    z-index: 9999 !important;
+  }
+
+  .affix  {
+    padding-top: 70px;
+  }
+
+.container-fluid{
+    padding-left: 50px;
+    padding-top: 10px;
+}

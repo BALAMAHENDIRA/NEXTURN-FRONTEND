@@ -1,0 +1,27 @@
+<div class="container">
+    <h1 style="font-size: 40px; color: aliceblue;">PICK A MOVIE</h1>
+
+    
+ 
+    <ng-container *ngFor="let movie of movies">
+        <div class="course-container">
+            <div class="course-card">
+                <div>
+                    <img [src]="movie.image1" style="width:420px; height:200px;">
+                </div>
+                <div class="course-name"><h2 ><b>{{movie.title}}</b></h2></div>
+<!--                 <div class="course-description"><p>{{movie.description.slice(0, 80)}}...</p></div>
+ -->                <div class="details">
+                    <div class="course-type" [ngStyle]="{color: movie.language === 'Free' ? 'Green' : 'Red'}"><b>Language:</b>{{movie.language}}</div>
+                    <div class="course-price"><b>Duration:</b> {{movie.duration}}</div>
+                </div>
+                <div class="course-buttons">
+                    <button class="btn btn-show" routerLink="/movie/{{movie.movieId}}">Show</button>
+                    <!-- <a [routerLink]="['/movie', movie['movieId'], movie['title']]" style="background-color: red; color: aliceblue;" >BOOK NOW</a> -->
+                </div>
+            </div>
+        </div>  
+    </ng-container>
+</div>
+
+

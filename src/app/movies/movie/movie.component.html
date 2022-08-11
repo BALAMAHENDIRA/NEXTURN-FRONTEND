@@ -1,0 +1,38 @@
+<div class="course-container">
+    <div>
+        <img src="{{movie.image1}}" width="560" height="280">
+    </div>
+    <div>
+        <h1 style="text-align: center;"><b>{{movie.title}}</b></h1>
+    </div>
+    <div class="course-details">
+        <div style="margin:auto"><p style="font-size: 17px;"><b style="color: blue;">Language: </b>{{movie.language}}</p></div>
+        <div style="margin:auto"><p style="font-size: 17px;"><b style="color: blue;">Duration: </b>{{movie.duration}}</p></div>
+        <div style="margin:auto"><p style="font-size: 17px;"><b style="color: blue;">Genre: </b>{{movie.genre}}</p></div>
+    </div>
+    <div style="margin:auto">
+        <h2><b>ReleaseDate:</b>  {{movie.releaseDate}}</h2>
+    </div>
+    <div style="margin-left: 1-10;">
+        <h1><b style="color: blue;">CAST</b></h1><br>
+        <h2><b>{{movie.hero}} </b></h2><br>
+        <h2><b>{{movie.heroine}} </b></h2><br>
+        <h2><b>{{movie.comedian}} </b></h2><br>
+        <h2><b>{{movie.villain}} </b></h2><br>
+        <h2><b>{{movie.director}} </b></h2><br>
+        <h2><b>{{movie.producer}} </b></h2><br>
+        <h2><b>{{movie.supportRole}} </b></h2><br>
+
+
+
+    </div>
+    <div style="margin: 20px 10px;">
+        <p>{{movie.description}}</p>
+    </div>
+    <div class="course-buttons">
+        <button class="btn btn-show" style="background-color: red; " routerLink="/theatre">BOOK TICKETS</button>
+        <!-- <a [routerLink]="['/screens', movie['movieId']]">BOOK TICKETS</a> -->
+
+
+    </div>
+</div>

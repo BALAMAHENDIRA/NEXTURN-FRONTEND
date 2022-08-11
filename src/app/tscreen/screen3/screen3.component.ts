@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-screen3',
   templateUrl: './screen3.component.html',
   styleUrls: ['./screen3.component.css']
 })
