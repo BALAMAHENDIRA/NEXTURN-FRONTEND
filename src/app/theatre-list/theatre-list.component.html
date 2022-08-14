@@ -1,0 +1,23 @@
+
+<form class="row row-cols-sm-auto">
+	<div class="col-12">
+	  <div class="input-group">
+		<input class="form-control" placeholder="yyyy-mm-dd"
+			   name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" (ngModelChange) = "change($event)" required>
+		<button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button" required></button>
+	  </div>
+	</div>
+  </form>
+  
+
+<!-- THEATRE-LIST
+ --><div class="links_container">
+	<div class="title_container">
+	  <h1 style="color: white;">THEATRES</h1>
+	</div>
+	<div class="link" *ngFor="let theatre of theatreList">
+	  <div class="text" style="color: white; font-size: 30px;">{{ theatre.theatreName}}</div>
+	  <a class="button" href="/screens/{{theatre.theatreId}}/{{theatre.startTime}}">{{theatre.startTime}}</a>
+	</div>
+	 
+  </div>

@@ -3,7 +3,7 @@ import { MoviesService } from './Services/movies.service';
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-//import {SlideshowModule} from 'ng-simple-slideshow';
+import {SlideshowModule} from 'ng-simple-slideshow';
 
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,16 +19,20 @@ import { FirstComponent } from './first/first.component';
 import { TheatreLayoutComponent } from './theatre-layout/theatre-layout.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { SlideshowComponent } from './slideshow/slideshow.component';
+import { TheatreListComponent } from './theatre-list/theatre-list.component';
+import { DatePipe } from '@angular/common';
  
 const appRoutes: Routes = [
  
   {path: 'movies/:cityId', component: MoviesComponent},
   {path: 'home', component: HomeComponent},
   {path: 'movie/:movieId', component: MovieComponent},
-  {path: 'screens/:movieId', component: ScreensComponent},
+  {path: 'screens/:theatreId/:startTime', component: ScreensComponent},
   {path: 'theatre', component: TheatreLayoutComponent},
-  {path: '', component: FirstComponent}
-
+  {path: '', component: FirstComponent},
+  {path: 'theatrelist', component: TheatreListComponent}
+ 
   
 ] 
 
@@ -43,6 +47,8 @@ const appRoutes: Routes = [
     TheatreLayoutComponent,
     HeaderComponent,
     FooterComponent,
+    SlideshowComponent,
+    TheatreListComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,9 +57,10 @@ const appRoutes: Routes = [
     NgbModule,
     FormsModule,
     HttpClientModule,
+    SlideshowModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [MoviesService],
+  providers: [MoviesService, DatePipe],
    
   bootstrap: [AppComponent]
 })

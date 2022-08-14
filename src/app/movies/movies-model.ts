@@ -4,7 +4,7 @@ export interface IMovies {
     cityId: number;
     name: string;
     theatreName: string;
-   theatreId: string;
+    theatreId: string;
     movieId: string;
     title: string;
     description: string;

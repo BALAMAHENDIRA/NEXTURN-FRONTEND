@@ -1,3 +1,5 @@
+import { TheatreListComponent } from './theatre-list/theatre-list.component';
+import { SlideshowComponent } from './slideshow/slideshow.component';
 import { MoviesComponent } from './movies/movies.component';
 import { ScreensComponent } from './screens/screens.component';
 import { MovieComponent } from './movies/movie/movie.component';
@@ -14,7 +16,9 @@ const routes: Routes = [
   {path: 'movie/:movieId/:title', component: MovieComponent},
   {path: 'screens/:movieId', component: ScreensComponent},
   {path: 'home', component: HomeComponent},
-  {path: 'movies', component: MoviesComponent}
+  {path: 'movies', component: MoviesComponent},
+  {path: 'slide', component: SlideshowComponent},
+  {path: 'theatrelist', component: TheatreListComponent}
 
 ];
 

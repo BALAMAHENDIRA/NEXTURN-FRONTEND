@@ -14,9 +14,9 @@
 
 .course-card{
     width:420px;
-    height: 320px;
+    height: 440px;
     margin: 10px 10px;
-    background-color: #c4c4c4;
+    background-color: #121212;
 }
 .course-name{
     text-align: center;
@@ -49,5 +49,5 @@
     background-color: #EC7063;
 }
 .btn-show{
-    background-color: #ABEBC6;
+    background-color: #ff370f;
 }

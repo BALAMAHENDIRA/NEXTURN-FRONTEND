@@ -21,13 +21,14 @@ export class MovieComponent implements OnInit {
  
   ngOnInit(): void {
     this.movieId = this.route.snapshot.paramMap.get("movieId");
-
+    
     //this.courseId = this.route.snapshot.params['name'];
     console.log(this.movieId);
     //this.loadData();
     //console.log(this.movies);
      this.getUsers(this.movieId);
    
+     localStorage.setItem('movid', this.movieId.toString());
     
   }
 

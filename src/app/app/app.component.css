@@ -9,6 +9,7 @@
     margin-right: auto;
     text-align: center;
     background-color: black;
+    height: auto;
 }
 ul {
     list-style-type: none;
