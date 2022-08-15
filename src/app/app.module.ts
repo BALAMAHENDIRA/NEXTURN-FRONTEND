@@ -22,6 +22,8 @@ import { FooterComponent } from './footer/footer.component';
 import { SlideshowComponent } from './slideshow/slideshow.component';
 import { TheatreListComponent } from './theatre-list/theatre-list.component';
 import { DatePipe } from '@angular/common';
+import { BookingSummaryComponent } from './booking-summary/booking-summary.component';
+import { SuccessComponent } from './success/success.component';
  
 const appRoutes: Routes = [
  
@@ -31,9 +33,10 @@ const appRoutes: Routes = [
   {path: 'screens/:theatreId/:startTime', component: ScreensComponent},
   {path: 'theatre', component: TheatreLayoutComponent},
   {path: '', component: FirstComponent},
-  {path: 'theatrelist', component: TheatreListComponent}
+  {path: 'theatrelist', component: TheatreListComponent},
+  {path: 'booking', component: BookingSummaryComponent},
+  {path: 'success', component: SuccessComponent}
  
-  
 ] 
 
 @NgModule({
@@ -49,6 +52,8 @@ const appRoutes: Routes = [
     FooterComponent,
     SlideshowComponent,
     TheatreListComponent,
+    BookingSummaryComponent,
+    SuccessComponent,
   ],
   imports: [
     BrowserModule,

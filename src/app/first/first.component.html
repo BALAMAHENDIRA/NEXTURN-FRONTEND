@@ -31,19 +31,20 @@
     <div class="course-container">
         <div class="course-card">
             <div>
-                <img [src]="movie.image1" style="width:420px; height:200px;">
+                <img [src]="movie.image1" style="width:400px; height:250px;">
             </div>
-            <div class="course-name"><h2 ><b>{{movie.title}}</b></h2></div>
-<!--                 <div class="course-description"><p>{{movie.description.slice(0, 80)}}...</p></div>
--->                <div class="details">
-                <div class="course-type" [ngStyle]="{color: movie.language === 'Free' ? 'Green' : 'Red'}"><b>Language:</b>{{movie.language}}</div>
-                <div class="course-price"><b>Duration:</b> {{movie.duration}}</div>
+            <div class="course-name"><h2 style="color: blue;"><b>{{movie.title}}</b></h2></div>
+             <div class="course-description"><p style="color: white;">{{movie.description.slice(0, 80)}}...</p></div>
+             <div class="details">
+                <div class="course-type" style="color: white;" ><b style="color: red;">Language:</b>{{movie.language}}</div>
+                <div class="course-price" style="color: white;"><b>Duration:</b> {{movie.duration}}</div>
             </div>
             <div class="course-buttons">
                 <button class="btn btn-show" routerLink="/movie/{{movie.movieId}}">Show</button>
                 <!-- <a [routerLink]="['/movie', movie['movieId'], movie['title']]" style="background-color: red; color: aliceblue;" >BOOK NOW</a> -->
-            </div>
+             </div>
         </div>
     </div>  
 </ng-container>
+
 </div>

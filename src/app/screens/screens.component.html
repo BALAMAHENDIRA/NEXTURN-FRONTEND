@@ -6,7 +6,8 @@
         
       <table >
          
-        
+        <h6 style="color: white;">THIRD CLASS: RS.90</h6>
+
         <tr>
           <td *ngFor="let n of checkBox | slice:0:10; ">
             <div>
@@ -27,6 +28,8 @@
               </div>
             </td>
           </tr>
+          
+         <h6 style="color: white;">SECOND CLASS: RS.120</h6>
           <tr>
             <td *ngFor="let n of checkBox | slice:20:30;  ">
               <div>
@@ -47,8 +50,32 @@
               </div>
             </td>
           </tr>
+          <br>
+          <h6 style="color: white;">FIRST CLASS: RS.150</h6>
+
           <tr>
             <td *ngFor="let n of checkBox | slice:40:50;  ">
+              <div>
+                <label>
+                  <input [disabled]="n.checked" type="checkbox"   [value]="n.id" (change)="Onchange($event)" >
+                  <span >{{n.name}}</span>
+                </label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td *ngFor="let n of checkBox | slice:50:60;  ">
+              <div>
+                <label>
+                  <input [disabled]="n.checked" type="checkbox"   [value]="n.id" (change)="Onchange($event)" >
+                  <span >{{n.name}}</span>
+                </label>
+              </div>
+            </td>
+          </tr>
+          <h6 style="color: white;">  BALCONY: RS.200</h6>
+          <tr>
+            <td *ngFor="let n of checkBox | slice:60:70;  ">
               <div>
                 <label>
                   <input [disabled]="n.checked" type="checkbox"   [value]="n.id" (change)="Onchange($event)" >
@@ -64,10 +91,16 @@
   <div >
     <br>
     <br>
+     
+    <h2 style="color: white;">TOTAL SEATS:  {{totalseats}}</h2>
+    <br>
+    <h2 style="color: white;">PRICE: Rs. {{total}}</h2>
     <br>
     <br>
-    <h1 style="color: white;">TOTAL SEATS:  {{totalseats}}</h1>
+     
+      <button [disabled]="buttondisabled" class="btn fourth" (click)="OnButtonClick($event)"   routerLink="/booking" style="margin: auto;">PAY NOW</button>
+      <!-- <a [routerLink]="['/movie', movie['movieId'], movie['title']]" style="background-color: red; color: aliceblue;" >BOOK NOW</a> -->
     <br>
-    <h1 style="color: white;">PRICE: Rs. {{total}}</h1>
+    <br>
     <br>
   </div>

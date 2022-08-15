@@ -22,6 +22,7 @@ export class MovieComponent implements OnInit {
   ngOnInit(): void {
     this.movieId = this.route.snapshot.paramMap.get("movieId");
     
+    localStorage.setItem('booking-movie', this.movieId);
     //this.courseId = this.route.snapshot.params['name'];
     console.log(this.movieId);
     //this.loadData();

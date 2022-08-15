@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { HttpClient, HttpParams} from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Subject } from 'rxjs';
 
 @Injectable({
@@ -46,12 +46,11 @@ gettheatres(url:string,app:any, obj : any){
   return this._http.get<any>(web,{params:queryParams});
 }
 
-getFour(url:string,objname:any, objname1: any, obj : any, obj1 : any){
-  const web = `${this.APIUrl}${url}`
-  let queryParams = new HttpParams().append(objname ,obj).append(objname1,obj1)
-  queryParams = new HttpParams().append(objname ,obj);
-  queryParams = queryParams.append(objname1,obj1);
-  return this._http.get<any>(web,{params:queryParams});
+getFour(   movid : any, city : any, obj2: any){
+  const url = "api/Movie/GetshowDetailsByDate?MovieID=";
+  //const web = `${this.APIUrl}${url}`
+ 
+  return this._http.get(`${this.APIUrl}${url}${movid}&CityID=${city}&date=${obj2}`);
 }
 
 getSeats(theatreid: any, start: any, date: any){
@@ -60,4 +59,16 @@ getSeats(theatreid: any, start: any, date: any){
   console.log(`${this.APIUrl}${url}${theatreid}&StartTime=${start}&Date=${date}`);
   return this._http.get(`${this.APIUrl}${url}${theatreid}&StartTime=${start}&Date=${date}`);
 }
+
+ 
+
+postDetails(price: number, seatNum: number, seatDetail: number, theatreId: number, date: string, start: string){
+  const url = "api/Movie/PostDetails?price=";
+  //const api = `${this.APIUrl}${url}`;
+  //let body1 = JSON.stringify({ price, seatNum, seatDetail, theatreId, date  , start});
+  const headers = { 'content-type': 'application/json'}  
+  return this._http.get(`${this.APIUrl}${url}${price}&seatNum=${seatNum}&seatDetail=${seatDetail}&theatreId=${theatreId}&date=${date}&start=${start}`);
+  
+  }
+  
 }

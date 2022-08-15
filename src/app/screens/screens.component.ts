@@ -12,10 +12,13 @@ export class ScreensComponent implements OnInit {
 
   seats = [] as ISeat[];
   check : any | undefined= {} ;
- total = 0;
- totalseats = 0;
+  total = 0;
+  totalseats = 0;
   selectedSeats = [] as ISeat[];
+  selectedNames =[] as ISeat[];
+  seatName : any | undefined= {} as ISeat;
   selected = {} as ISeat;
+  buttondisabled = true;
  a = true;
  
   checkBox = [
@@ -69,6 +72,26 @@ export class ScreensComponent implements OnInit {
     {id: 48,name: "E8", checked:false},
     {id: 49,name: "E9", checked:false},
     {id: 50,name: "E10", checked:false},
+    {id: 51,name: "F1", checked:false},
+    {id: 52,name: "F2", checked:false},
+    {id: 53,name: "F3", checked:false},
+    {id: 54,name: "F4", checked:false},
+    {id: 55,name: "F5", checked:false},
+    {id: 56,name: "F6", checked:false},
+    {id: 57,name: "F7", checked:false},
+    {id: 58,name: "F8", checked:false},
+    {id: 59,name: "F9", checked:false},
+    {id: 60,name: "F10", checked:false},
+    {id: 61,name: "G1", checked:false},
+    {id: 62,name: "G2", checked:false},
+    {id: 63,name: "G3", checked:false},
+    {id: 64,name: "G4", checked:false},
+    {id: 65,name: "G5", checked:false},
+    {id: 66,name: "G6", checked:false},
+    {id: 67,name: "G7", checked:false},
+    {id: 68,name: "G8", checked:false},
+    {id: 69,name: "G9", checked:false},
+    {id: 70,name: "G10", checked:false},
      
      
 ];
@@ -86,11 +109,16 @@ export class ScreensComponent implements OnInit {
     console.log(this.starttime);
     console.log(date);
    
-   
-    
+    localStorage.setItem('booking-date', date || "{}");
+    localStorage.setItem('booking-start', this.starttime);
+    localStorage.setItem('booking-theatre', this.theatrid);
+
+
     this.getSelectedSeats(this.theatrid, this.starttime, date );
      
   }
+
+
   getSelectedSeats(theatreid: any, start: any, date: any) {
     this.service.getSeats(theatreid, start, date ).subscribe(
       {
@@ -113,21 +141,59 @@ export class ScreensComponent implements OnInit {
 
   Onchange(event: any){
     //console.log(event.target.value);
-    this.total+=120;
-    this.totalseats +=1;
-    //console.log(this.selectedSeats);
+   
+    if(event.target.checked){
 
-    this.selected.seatNumber = event.target.value;
-    console.log(this.selected);
-     
-    // this.selectedSeats.forEach(element => {
-    //   //element.seatNumber = event.target.value;
-    //   this.selectedSeats.push(this.selected);
-    //  });
-    
-    this.selectedSeats.push(this.selected);
-     console.log(this.selectedSeats);
+      this.selectedSeats.push(event.target.value);
 
+      this.totalseats +=1;
+
+      if(event.target.value < 21){
+        this.total+=90;
+      }
+      else if(event.target.value <41){
+        this.total+=120;
+      }
+      else if(event.target.value <61){
+        this.total+=150;
+      }
+      else{
+        this.total+=200;
+
+      }
+      
+    }
+    else{
+
+      this.remove(event.target.value);
+      this.totalseats -=1;
+      
+      if(event.target.value < 21){
+        this.total-=90;
+      }
+      else if(event.target.value <41){
+        this.total-=120;
+      }
+      else if(event.target.value <61){
+        this.total-=150;
+      }
+      else{
+        this.total-=200;
+
+      }
+ 
+    }
+
+    //button
+    if(this.totalseats !== 0){
+      this.buttondisabled = false;
+     }
+     else{
+      this.buttondisabled = true;
+     }
+   
+    console.log(this.selectedSeats);
+  
   }
 
  
@@ -142,4 +208,31 @@ export class ScreensComponent implements OnInit {
 
      
   }
+
+  remove(n: any){
+    this.selectedSeats.forEach(element => {
+      if(element == n){
+        const index =  this.selectedSeats.indexOf(n);
+        if(index>-1){
+          this.selectedSeats.splice(index, 1);
+        }
+     
+      }   
+     });
+  }
+
+  OnButtonClick(event: any){
+    this.selectedSeats.forEach(element => {
+      this.seatName = this.checkBox.find((x: { id: any; }) => x.id == element );
+      this.selectedNames.push(this.seatName.name);
+
+    });
+    
+    //console.log(this.selectedNames);
+    localStorage.setItem('selectedseats', JSON.stringify(this.selectedSeats));
+    
+    localStorage.setItem('selected', JSON.stringify(this.selectedNames));
+    localStorage.setItem('price', JSON.stringify(this.total));
+  }
+  
 }

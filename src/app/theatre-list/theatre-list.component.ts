@@ -12,28 +12,29 @@ export class TheatreListComponent implements OnInit {
   currentDate = new Date();
   model: NgbDateStruct =   { year: this.currentDate.getFullYear(), month: this.currentDate.getMonth() + 1, day: this.currentDate.getDate() };
   theatreList = [] as ITheatreList[];
-  //latest_date: any ;
+ movid: number=0;
+ cityId : number =0;
   constructor(private service: MoviesService  ) { }
 
   ngOnInit(): void {
-    var cityId = JSON.parse(localStorage.getItem('cityid') || '{}');
-    console.log(cityId);
-    var movid = JSON.parse(localStorage.getItem('movid') || '{}');
-    console.log(movid);
+    this.cityId = JSON.parse(localStorage.getItem('cityid') || '{}');
+    console.log(this.cityId);
+    this.movid = JSON.parse(localStorage.getItem('movid') || '{}');
+    console.log(this.movid);
+    var newDate = (this.model.year+ "-" +this.model.month+ "-"+this.model.day);
 
-    this.getTheatreList(movid, cityId) ;
+    this.getTheatreList(this.movid, this.cityId, newDate) ;
 
     //this.latest_date =this.datepipe.transform(this.model, 'yyyy-MM-dd');
     //console.log(this.latest_date);
-    var newDate = (this.model.year+ "-"+this.model.month+"-"+this.model.day);
   localStorage.setItem("date", newDate);
   console.log(this.model);
     
   }
 
 
-  getTheatreList(obj: any, obj1 : any) {
-    this.service.getFour("api/Movie/GetshowDetais","MovieID","CityID", obj, obj1 ).subscribe(
+  getTheatreList(obj: any, obj1 : any, obj2: any) {
+    this.service.getFour(  obj, obj1, obj2 ).subscribe(
       {
         next: (out: any) => {
           this.theatreList = out as ITheatreList[];
@@ -51,11 +52,14 @@ change(event : any){
   console.log(this.model);
   
     var newDate = (this.model.year+ "-"+this.model.month+"-"+this.model.day);
-  
-  
+
+    console.log(this.movid);
+    console.log(this.cityId);
+    console.log(newDate);
+    this.getTheatreList(this.movid, this.cityId, newDate) ;
+    console.log(this.theatreList);
 
   localStorage.setItem("date", newDate);
 
-  localStorage.setItem("date", newDate);
 }
 }
