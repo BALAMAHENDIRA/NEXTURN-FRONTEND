@@ -13,6 +13,7 @@ import { ITheatres } from './movie/Theatre-model';
 })
 export class MoviesComponent implements OnInit {
 
+  buttondisabled = true;
   searchKey = "";
   selectedItem = '';
   object: any = 1;
@@ -100,9 +101,7 @@ export class MoviesComponent implements OnInit {
       );
     }
 
-    sample(){
-      console.log("bala");
-    }
+    
 
     gettheatres(obj : any){
       this.moviesServices.gettheatres("api/Movie/GetTheaters","CityId", obj ).subscribe(
@@ -124,8 +123,9 @@ export class MoviesComponent implements OnInit {
       console.log(this.theatre.theatreId);
       var value = this.theatre.theatreId;
       this.getMovieByTheatre(value);
-      //console.log("this.movies");
-      //this.sample();
-      //this.getUsers(this.theatre.);
+      if(this.selectedItem != ''){
+        this.buttondisabled = false;
+        localStorage.setItem('detail-theatre', this.theatre.theatreId);
+      }
     }
 }

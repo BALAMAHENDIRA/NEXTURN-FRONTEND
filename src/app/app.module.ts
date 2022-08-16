@@ -24,6 +24,7 @@ import { TheatreListComponent } from './theatre-list/theatre-list.component';
 import { DatePipe } from '@angular/common';
 import { BookingSummaryComponent } from './booking-summary/booking-summary.component';
 import { SuccessComponent } from './success/success.component';
+import { DetailsComponent } from './details/details.component';
  
 const appRoutes: Routes = [
  
@@ -35,7 +36,8 @@ const appRoutes: Routes = [
   {path: '', component: FirstComponent},
   {path: 'theatrelist', component: TheatreListComponent},
   {path: 'booking', component: BookingSummaryComponent},
-  {path: 'success', component: SuccessComponent}
+  {path: 'success', component: SuccessComponent},
+  {path: 'details', component: DetailsComponent}
  
 ] 
 
@@ -54,6 +56,7 @@ const appRoutes: Routes = [
     TheatreListComponent,
     BookingSummaryComponent,
     SuccessComponent,
+    DetailsComponent,
   ],
   imports: [
     BrowserModule,

@@ -27,24 +27,54 @@
 <br>
   <h1 style="color: red;">RECOMMENDED MOVIES</h1>
 
-  <ng-container *ngFor="let movie of movies">
-    <div class="course-container">
-        <div class="course-card">
-            <div>
-                <img [src]="movie.image1" style="width:400px; height:250px;">
-            </div>
-            <div class="course-name"><h2 style="color: blue;"><b>{{movie.title}}</b></h2></div>
-             <div class="course-description"><p style="color: white;">{{movie.description.slice(0, 80)}}...</p></div>
-             <div class="details">
-                <div class="course-type" style="color: white;" ><b style="color: red;">Language:</b>{{movie.language}}</div>
-                <div class="course-price" style="color: white;"><b>Duration:</b> {{movie.duration}}</div>
-            </div>
-            <div class="course-buttons">
-                <button class="btn btn-show" routerLink="/movie/{{movie.movieId}}">Show</button>
-                <!-- <a [routerLink]="['/movie', movie['movieId'], movie['title']]" style="background-color: red; color: aliceblue;" >BOOK NOW</a> -->
-             </div>
-        </div>
-    </div>  
-</ng-container>
+  
 
+<div class="container"   *ngFor="let movie of movies">
+    <div class="cellphone-container">
+      <div class="movie">
+        <div class="movie-img">
+            <img [src]="movie.image1" style="width:400px; height:450px;"> </div>
+        <div class="text-movie-cont">
+          <div class="mr-grid">
+            <div class="col1">
+              <h2 >{{movie.title}}</h2>
+              <ul class="movie-gen">
+                 
+                <li>{{movie.language}} /</li>
+                <li>{{movie.duration}}</li>
+              </ul>
+            </div>
+          </div>
+          <div class="mr-grid summary-row">
+            <div class="col2">
+              <h5>SUMMARY</h5>
+            </div>
+            <div class="col2">
+              <ul class="movie-likes">
+                <li><i class="material-icons">&#xE813;</i>124</li>
+                <li><i class="material-icons">&#xE813;</i>3</li>
+              </ul>
+            </div>
+          </div>
+          <div class="mr-grid">
+            <div class="col1">
+              <p class="movie-description">{{movie.description}}</p>
+            </div>
+          </div>
+           
+          <div class="mr-grid action-row">
+            <div class="col2">
+              <div class="watch-btn">
+                <button class="btn btn-show" routerLink="/movie/{{movie.movieId}}">Show</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="https://dribbble.com/geehm" target="_blank">
+    <img class="dribbble-link" src="https://image.flaticon.com/icons/png/512/124/124037.png">
+  </a>
 </div>
