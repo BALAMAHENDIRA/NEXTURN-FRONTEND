@@ -13,7 +13,14 @@
     <div style="margin:auto">
         <h2><b>ReleaseDate:</b>  {{movie.releaseDate}}</h2>
     </div>
-    <div style="margin-left: 1-10;">
+   <!--  <iframe width="560" height="315" src="{{movie.trailer}}"  ></iframe> -->
+    <!-- <iframe width="560" height="315" src='"https://www.youtube.com/embed?listType=playlist&list=+{{trailer}}"' frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>  -->
+<a href="{{movie.trailer}}" ><img src="assets/y2.png" width="200" height="100"></a>
+ <!--  <object data='{{trailer}}' 
+  width='560px' height='315px'>
+</object> -->
+
+  <div style="margin-left: 1-10;">
         <h1><b style="color: blue;">CAST</b></h1><br>
         <h2><b>{{movie.hero}} </b></h2><br>
         <h2><b>{{movie.heroine}} </b></h2><br>
@@ -22,6 +29,7 @@
         <h2><b>{{movie.director}} </b></h2><br>
         <h2><b>{{movie.producer}} </b></h2><br>
         <h2><b>{{movie.supportRole}} </b></h2><br>
+
 
 
 

@@ -17,7 +17,7 @@ theatres = [] as ITheatres[];
     this.gettheatres(this.detail);
   }
   gettheatres(obj : any){
-    this.service.gettheatres("api/Movie/GetTheatersById","TheatreId", obj ).subscribe(
+    this.service.gettheatres("api/Movie/GetdetbytheatreID","TheatreId", obj ).subscribe(
       {
         next: (out: any) => {
           this.theatres = out as ITheatres[];

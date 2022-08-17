@@ -420,3 +420,115 @@ body {
 		background: rgba(161,145,0,.7);	
 
 	}
+
+  /* BUTTON */
+  
+.btn-effect {
+  border: none;
+  width: 347px;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 5px;
+  color: var(--background2);
+  background: var(--effect);
+  -webkit-box-shadow: 0 0 5px #00000030;
+  transition: var(--transition_fast) ease-out;
+}
+.btn-effect path, .btn-effect svg { color: white; }
+.btn-effect:hover { background: var(--vermelho); }
+
+input:disabled,
+input:disabled + label {
+  cursor: not-allowed;
+  background: var(--background) !important;
+}
+
+
+/* DISPLAYS
+--------------------------------------------------------------------------------*/
+.none { display: none !important; }
+.flex { display: flex !important; }
+.grid { display: grid !important; }
+.block { display: block !important; }
+
+
+main {
+  width: 100%;
+  height: 100vh;
+  padding: 20px;
+  overflow: hidden;
+}
+.multiseparate {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.food-card {
+  width: 300px;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  background: var(--branco);
+  -webkit-box-shadow: 0 0 5px var(--aux-gray);
+}
+
+.food-card .food-card-header {
+  width: 100%;
+  height: 150px;
+  background: var(--shadow-google);
+}
+.food-card .food-card-header img {
+  width: 100%;
+  heigth: 100%;
+  max-height: 100%;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.food-card .food-card-body {
+  display: flex;
+  alig-items: center;
+  padding: 15px 15px 10px 15px;
+  justify-content: space-between;
+}
+.food-card .food-card-body h5 {
+ width: 225px;
+ white-space: nowrap;
+ overflow: hidden !important;
+ text-overflow: ellipsis;
+}
+.food-card .food-card-body path,
+.food-card .food-card-body svg, 
+.food-card .food-card-body i {
+  display: flex;
+  color: #ff8900;
+  font-size: 0.85em;
+  justify-content: center;
+}
+
+.food-card .food-card-footer {
+  display: flex;
+  padding: 15px;
+  align-items: center;
+  justify-content: space-between;
+}
+.food-card .food-card-footer h4.price {
+  color: var(--verde);
+}
+.food-card .food-card-footer .view-button {
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 3px;
+  background: var(--effect);
+}
+.food-card .food-card-footer .view-button path,
+.food-card .food-card-footer .view-button svg,
+.food-card .food-card-footer .view-button i {
+  color: white;
+}
+.food-card .food-card-footer .view-button:hover {
+  background: var(--vermelho_hover);
+}

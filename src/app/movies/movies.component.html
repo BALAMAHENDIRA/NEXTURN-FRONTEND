@@ -2,7 +2,7 @@
 
       <div class="mb-3">
         <label for="cityId" class="form-label"></label>
-        <div class="mb-3">
+        <div class="mb-3" style="width: 500px; float: right;">
              
             <select class="form-select"   (change)="onselect($event)"
             optionLabel="name"  [(ngModel)]="selectedItem"  required>
@@ -10,9 +10,12 @@
                 <option  *ngFor="let theatre of theatres" (value) ="theatre.theatreId">{{theatre.theatreName}}</option>
             </select>
         </div> 
+        <br>
+        <br>
+        <br>
         <div class="buttons">
  
-            <button [disabled]="buttondisabled" routerLink="/details" class="offset">Theatre Deatails</button>
+            <button [disabled]="buttondisabled" routerLink="/details" class="offset" style="float: right;">Theatre Deatails</button>
           </div>
  <br>
  <br>
@@ -57,7 +60,7 @@
               <div class="mr-grid action-row">
                 <div class="col2">
                   <div class="watch-btn">
-                    <button class="btn btn-show" routerLink="/movie/{{movie.movieId}}">Show</button>
+                    <button class="btn btn-show" routerLink="/movie/{{movie.movieId}}" >Show</button>
                   </div>
                 </div>
                 

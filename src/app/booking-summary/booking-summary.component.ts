@@ -3,6 +3,7 @@ import { IMovies } from './../movies/movies-model';
 import { ITheatres } from './../movies/movie/Theatre-model';
 import { MoviesService } from './../Services/movies.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-booking-summary',
@@ -11,6 +12,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookingSummaryComponent implements OnInit {
 
+  edited = true;
+  snack = 0;
+  popcorn : any = 0;
+  coke : any = 0;
+  icecream : any = 0;
+  puff : any = 0;
+  samosa : any = 0;
+  coldcoffee: any = 0;
+  blackforest: any = 0;
+  milk: any = 0;
   isPosted : any ;
   name = "bala mahendira";
   theatres = [] as ITheatres[];
@@ -23,9 +34,10 @@ export class BookingSummaryComponent implements OnInit {
   date : string | null = "";
   seats : any | null = [] ;
   seatnum : any | null= [];
-  constructor(private service : MoviesService) { }
+  constructor(private service : MoviesService, private router: Router) { }
 
   ngOnInit(): void {
+
     this.seats = JSON.parse(localStorage.getItem('selected') || '{}');
     this.seatnum = JSON.parse(localStorage.getItem('selectedseats') || '{}');
 
@@ -34,14 +46,22 @@ export class BookingSummaryComponent implements OnInit {
     this.starttime = localStorage.getItem('booking-start') || '{}';
     this.movie = localStorage.getItem('booking-movie') || '{}';
     this.theatreid = JSON.parse(localStorage.getItem('booking-theatre') || '{}');
+   
     this.gettheatres(this.theatreid);
     this.getmovies(this.movie);
-   // console.log(this.seatnum);
-    //console.log(this.name);
-    console.log(this.date);
+   
+    console.log(this.movie);
     console.log(this.theatreid);
-    //console.log(this.movie);
-    //console.log(this.starttime);
+    
+    this.displayfood();
+    this.checklocal();
+  }
+  checklocal(){
+    if(this.date == null ){
+      console.log("bala");
+    this.router.navigate(['']);
+
+    }
   }
 
   gettheatres(obj : any){
@@ -111,5 +131,163 @@ else if (element<71){
       
     });
 
+  }
+
+  displayfood(){
+    if(this.snack != 0){
+      this.edited =false;
+    }
+    else{
+      this.edited = true;
+    }
+  }
+
+  addpopcorn(){
+    if(this.popcorn < 5){
+      this.popcorn+=1;
+      this.price+=40;
+      this.snack +=40;
+    this.displayfood();
+
+    }
+  }
+  subpopcorn(){
+    if(this.popcorn > 0){
+      this.popcorn-=1;
+      this.price-=40;
+      this.snack -=40;
+    this.displayfood();
+
+
+    }
+  }
+
+  addcoke(){
+    if(this.coke < 5){
+      this.coke+=1;
+      this.price+=30;
+      this.snack +=30;
+    this.displayfood();
+
+
+    }
+  }
+  subcoke(){
+    if(this.coke  > 0){
+      this.coke-=1;
+      this.price-=30;
+      this.snack -=30;
+    this.displayfood();
+
+
+    }
+  }
+  addice(){
+    if(this.icecream < 5){
+      this.icecream+=1;
+      this.price+=45;
+      this.snack +=45;
+    this.displayfood();
+
+
+    }
+  }
+  subice(){
+    if(this.icecream  > 0){
+      this.icecream-=1;
+      this.price-=45;
+      this.snack -=45;
+    this.displayfood();
+
+
+    }
+  }
+
+  addpuff(){
+    if(this.puff < 5){
+      this.puff+=1;
+      this.price+=40;
+      this.snack +=40;
+    this.displayfood();
+
+
+    }
+  }
+  subpuff(){
+    if(this.puff  > 0){
+      this.puff-=1;
+      this.price-=40;
+      this.snack -=40;
+    this.displayfood();
+    }
+  }
+
+  addsamosa(){
+    if(this.samosa < 5){
+      this.samosa+=1;
+      this.price+=20;
+      this.snack +=20;
+    this.displayfood();
+    }
+  }
+
+  subsamosa(){
+    if(this.samosa  > 0){
+      this.samosa-=1;
+      this.price-=20;
+      this.snack -=20;
+    this.displayfood();
+    }
+  }
+
+  addcoffee(){
+    if(this.coldcoffee < 5){
+      this.coldcoffee+=1;
+      this.price+=55;
+      this.snack +=55;
+    this.displayfood();
+    }
+  }
+  subcoffee(){
+    if(this.coldcoffee  > 0){
+      this.coldcoffee-=1;
+      this.price-=55;
+      this.snack -=55;
+    this.displayfood();
+    }
+  }
+
+  addblack(){
+    if(this.blackforest < 5){
+      this.blackforest+=1;
+      this.price+=60;
+      this.snack +=60;
+    this.displayfood();
+    }
+  }
+  subblack(){
+    if(this.blackforest  > 0){
+      this.blackforest-=1;
+      this.price-=60;
+      this.snack -=60;
+    this.displayfood();
+    }
+  }
+
+  addmilk(){
+    if(this.milk < 5){
+      this.milk+=1;
+      this.price+=50;
+      this.snack +=50;
+    this.displayfood();
+    }
+  }
+  submilk(){
+    if(this.milk  > 0){
+      this.milk-=1;
+      this.price-=50;
+      this.snack -=50;
+    this.displayfood();
+    }
   }
 }

@@ -17,6 +17,7 @@ export class MovieComponent implements OnInit {
   movie : any | undefined = [] as ICast[];
   movieId: any | null;
   movies = [] as ICast[];
+  trailer: any;
 
  
   ngOnInit(): void {
@@ -28,7 +29,7 @@ export class MovieComponent implements OnInit {
     //this.loadData();
     //console.log(this.movies);
      this.getUsers(this.movieId);
-   
+    this.trailer = "https://www.youtube.com/embed/OJLzgwUMTHs";
      localStorage.setItem('movid', this.movieId.toString());
     
   }

@@ -1,17 +1,22 @@
 
   
-<div class="mb-3">
+<div class="mb-3" >
     <label for="cityId" class="form-label"></label>
-    <div class="mb-3">
-        <label for="cityId" class="form-label" style="color: white; font-size: xx-large;">SELECT CITY</label>
+    <div class="mb-3" style="width: 500px; float: right;">
+        <label for="cityId" class="form-label" style="color: rgb(199, 199, 199, o.8); font-size: xx-large;">SELECT CITY</label><br><br>
         <select class="form-select"   (change)="onSelectionChange($event)"
         optionLabel="name"  [(ngModel)]="selectedItem"  required>
             <option value=null>Select City</option>
             <option  *ngFor="let city of cities" (value) ="city.cityId">{{city.name}}</option>
         </select>
     </div>
-
-
+<br>
+<br>
+<br>
+<br>  
+<br>
+<br>
+ 
 <!-- SILDESHOW   -->  
 <div id="slider">
 	<figure>
@@ -25,8 +30,12 @@
 <br>
 <br>
 <br>
-  <h1 style="color: red;">RECOMMENDED MOVIES</h1>
 
+  <h1 style="color: red;">RECOMMENDED MOVIES</h1>
+  <br>
+  <br>
+  <br>
+  <br>
   
 
 <div class="container"   *ngFor="let movie of movies">
@@ -49,12 +58,8 @@
             <div class="col2">
               <h5>SUMMARY</h5>
             </div>
-            <div class="col2">
-              <ul class="movie-likes">
-                <li><i class="material-icons">&#xE813;</i>124</li>
-                <li><i class="material-icons">&#xE813;</i>3</li>
-              </ul>
-            </div>
+ 
+             
           </div>
           <div class="mr-grid">
             <div class="col1">
@@ -74,7 +79,5 @@
       </div>
     </div>
   </div>
-  <a href="https://dribbble.com/geehm" target="_blank">
-    <img class="dribbble-link" src="https://image.flaticon.com/icons/png/512/124/124037.png">
-  </a>
+ 
 </div>

@@ -30,7 +30,7 @@
             ],
             "scripts": [
               "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
-              "https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"
+               
             ]
           },
           "configurations": {

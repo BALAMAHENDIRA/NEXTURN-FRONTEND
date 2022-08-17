@@ -9,6 +9,10 @@ import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./theatre-list.component.css']
 })
 export class TheatreListComponent implements OnInit {
+  tdate:any = new Date();
+  date: any = this.tdate.getDate();
+  min : any ;
+  newDate: any ;
   currentDate = new Date();
   model: NgbDateStruct =   { year: this.currentDate.getFullYear(), month: this.currentDate.getMonth() + 1, day: this.currentDate.getDate() };
   theatreList = [] as ITheatreList[];
@@ -21,14 +25,23 @@ export class TheatreListComponent implements OnInit {
     console.log(this.cityId);
     this.movid = JSON.parse(localStorage.getItem('movid') || '{}');
     console.log(this.movid);
-    var newDate = (this.model.year+ "-" +this.model.month+ "-"+this.model.day);
+      this.newDate = (this.model.year+ "-" +this.model.month+ "-"+this.model.day);
 
-    this.getTheatreList(this.movid, this.cityId, newDate) ;
+    this.getTheatreList(this.movid, this.cityId, this.newDate) ;
 
-    //this.latest_date =this.datepipe.transform(this.model, 'yyyy-MM-dd');
-    //console.log(this.latest_date);
-  localStorage.setItem("date", newDate);
-  console.log(this.model);
+    if(this.date<10){
+      this.date="0"+this.date;
+    }
+    var month:any = this.tdate.getMonth()+1;
+    if(month<10){
+      month="0"+month;
+    }
+    var year :any  = this.tdate.getFullYear();
+    this.min = year +"-"+month+"-"+this.date;
+    console.log(this.min);
+    
+  localStorage.setItem("date", this.min);
+  console.log(this.min);
     
   }
 
@@ -47,19 +60,24 @@ export class TheatreListComponent implements OnInit {
       }
     );
   }
+
 change(event : any){
   
   console.log(this.model);
   
-    var newDate = (this.model.year+ "-"+this.model.month+"-"+this.model.day);
+ var b = event.target.value;
+ console.log(b);
+  
+    // var newDate = (this.model.year+ "-"+this.model.month+"-"+this.model.day);
 
     console.log(this.movid);
     console.log(this.cityId);
-    console.log(newDate);
-    this.getTheatreList(this.movid, this.cityId, newDate) ;
+    console.log(b);
+    this.getTheatreList(this.movid, this.cityId, b) ;
     console.log(this.theatreList);
 
-  localStorage.setItem("date", newDate);
+  localStorage.setItem("date", b);
 
 }
+ 
 }

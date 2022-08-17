@@ -28,20 +28,20 @@
           <div class="info__item">Time</div>
           <div class="info__detail">{{starttime}}</div>
         </div>
-        <!-- <div class="info carriage">
-          <div class="info__item">car</div>
-          <div class="info__detail">4</div>
-        </div> -->
-        <div class="info seat">
-          <div >
-          <div class="info__item">Seats</div>
-          <div class="info__detail"  *ngFor="let n of seats">{{n}}</div>
+        <div class="info carriage" [hidden]="edited">
+          <div class="info__item">Food & Beverage</div>
+          <div class="info__detail">Rs.{{snack}}</div>
         </div>
+       <div class="info seat">
+          <div >
+           <div class="info__item">Seats</div>
+          <div class="info__detail"  *ngFor="let n of seats">{{n}}</div>
+        </div> 
   
         </div>
         <div class="fineprint"> 
           <p>Boarding begins 30 minutes before departure. Snacks available for purchase from The Honeydukes Express.</p>
-          <p>This ticket is Non-refundable • Hogwarts Express Railway Authority</p>
+          <p>This ticket is Non-refundable • Nexturn Movies Private Limited</p>
         </div>
         <div class="snack">
           <svg viewBox="0 -11 414.00053 414">
@@ -84,9 +84,153 @@
   </div>
    <br>
    <br>
-    
-   <br>
+
    
+   <!-- POPCORN -->
+   <div class="food-card" style="float: left; margin: 30px;">
+    <div class="food-card-header">
+      <img src="assets/snacks/popcorn.jpg" style="height: 200px;">
+    </div>
+    <br>
+    <div class="food-card-body">
+      <h1 style="color: rgb(214, 214, 214, 0.5);">POPCORN</h1>
+    </div>
+    <div class="food-card-footer">
+      <h2 class="price" style="color: yellow;">Rs. 40</h2>
+      <button class="view-button" (click)="addpopcorn()"><i class="fas fa-plus"></i> </button> <h1 style="color: white;">{{popcorn}}</h1>
+      <button class="view-button" (click)="subpopcorn()"><i class="fas fa-minus"></i> </button>
+    
+    </div>
+  </div>
+
+
+
+  <!-- COKE -->
+  <div class="food-card" style="float: left; margin: 30px;">
+    <div class="food-card-header">
+      <img src="assets/snacks/coke.jpg" style="height: 200px;">
+    </div>
+    <br>
+    <div class="food-card-body">
+      <h1 style="color: rgb(214, 214, 214, 0.5);">COKE</h1>
+    </div>
+    <div class="food-card-footer">
+      <h2 class="price" style="color: yellow;">Rs. 30</h2>
+      <button class="view-button" (click)="addcoke()"><i class="fas fa-plus"></i> </button> <h1 style="color: white;">{{coke}}</h1>
+      <button class="view-button" (click)="subcoke()"><i class="fas fa-minus"></i> </button>
+    
+    </div>
+  </div>
+
+  <!-- icecream -->
+  <div class="food-card" style="float: left; margin: 30px;">
+    <div class="food-card-header">
+      <img src="assets/snacks/icecream.jpg" style="height: 200px;">
+    </div>
+    <br>
+    <div class="food-card-body">
+      <h1 style="color: rgb(214, 214, 214, 0.5);">ICE CREAM</h1>
+    </div>
+    <div class="food-card-footer">
+      <h2 class="price" style="color: yellow;">Rs. 45</h2>
+      <button class="view-button" (click)="addice()"><i class="fas fa-plus"></i> </button> <h1 style="color: white;">{{icecream}}</h1>
+      <button class="view-button" (click)="subice()"><i class="fas fa-minus"></i> </button>
+    
+    </div>
+  </div>
+
+<!-- puff -->
+  <div class="food-card" style="float: left; margin: 30px;">
+    <div class="food-card-header">
+      <img src="assets/snacks/puff.jpg" style="height: 200px;">
+    </div>
+    <br>
+    <div class="food-card-body">
+      <h1 style="color: rgb(214, 214, 214, 0.5);">PUFF</h1>
+    </div>
+    <div class="food-card-footer">
+      <h2 class="price" style="color: yellow;">Rs. 40</h2>
+      <button class="view-button" (click)="addpuff()"><i class="fas fa-plus"></i> </button> <h1 style="color: white;">{{puff}}</h1>
+      <button class="view-button" (click)="subpuff()"><i class="fas fa-minus"></i> </button>
+    
+    </div>
+  </div>
+
+  <!-- samosa -->
+  <div class="food-card" style="float: left; margin: 30px;">
+    <div class="food-card-header">
+      <img src="assets/snacks/samosa.jpg" style="height: 200px;">
+    </div>
+    <br>
+    <div class="food-card-body">
+      <h1 style="color: rgb(214, 214, 214, 0.5);">SAMOSA</h1>
+    </div>
+    <div class="food-card-footer">
+      <h2 class="price" style="color: yellow;">Rs. 20</h2>
+      <button class="view-button" (click)="addsamosa()"><i class="fas fa-plus"></i> </button> <h1 style="color: white;">{{samosa}}</h1>
+      <button class="view-button" (click)="subsamosa()"><i class="fas fa-minus"></i> </button>
+    
+    </div>
+  </div>
+
+   <!-- cold coffee -->
+  <div class="food-card" style="float: left; margin: 30px;">
+    <div class="food-card-header">
+      <img src="assets/snacks/coldcoffee.jpg" style="height: 200px;">
+    </div>
+    <br>
+    <div class="food-card-body">
+      <h1 style="color:  rgb(214, 214, 214, 0.5);">COLD COFFEE</h1>
+    </div>
+    <div class="food-card-footer">
+      <h2 class="price" style="color: yellow;">Rs. 55</h2>
+      <button class="view-button" (click)="addcoffee()"><i class="fas fa-plus"></i> </button> <h1 style="color: white;">{{coldcoffee}}</h1>
+      <button class="view-button" (click)="subcoffee()"><i class="fas fa-minus"></i> </button>
+    
+    </div>
+  </div>
+
+  <!--  black forest -->
+
+  <div class="food-card" style="float: left; margin: 30px;">
+    <div class="food-card-header">
+      <img src="assets/snacks/blackforest.jpg" style="height: 200px;">
+    </div>
+    <br>
+    <div class="food-card-body">
+      <h1 style="color: rgb(214, 214, 214, 0.5);">BLACK FOREST</h1>
+    </div>
+    <div class="food-card-footer">
+      <h2 class="price" style="color: yellow;">Rs. 60</h2>
+      <button class="view-button" (click)="addblack()"><i class="fas fa-plus"></i> </button> <h1 style="color: white;">{{blackforest}}</h1>
+      <button class="view-button" (click)="subblack()"><i class="fas fa-minus"></i> </button>
+    
+    </div>
+  </div>
+
+    <!-- Milk shake -->
+  <div class="food-card" style="float: left; margin: 30px;">
+    <div class="food-card-header">
+      <img src="assets/snacks/milkshake.jpg" style="height: 200px;">
+    </div>
+    <br>
+    <div class="food-card-body">
+      <h1 style="color: rgb(214, 214, 214, 0.5);">MILK SHAKE</h1>
+    </div>
+    <div class="food-card-footer">
+      <h2 class="price" style="color: yellow;">Rs. 50</h2>
+      <button class="view-button" (click)="addmilk()"><i class="fas fa-plus"></i> </button> <h1 style="color: white;">{{milk}}</h1>
+      <button class="view-button" (click)="submilk()"><i class="fas fa-minus"></i> </button>
+    
+    </div>
+  </div>
+ 
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
    <ul>
     <li><a href="#"  routerLink="/success" (click) ="OnClick($event)" class="round red" style="color: rgb(105, 0, 0);">CONFIRM BOOKING<span class="round">The ticket fund is non-refundable</span></a></li>
   </ul> 

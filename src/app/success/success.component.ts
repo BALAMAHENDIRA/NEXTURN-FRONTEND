@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+ 
 @Component({
   selector: 'app-success',
   templateUrl: './success.component.html',
@@ -10,6 +10,11 @@ edited = false;
   constructor() { }
 
   ngOnInit(): void {
+    this.clear();
+  }
+
+  clear(){
+    localStorage.clear();
   }
 
 }
